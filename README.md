@@ -7,7 +7,7 @@
 - No manual setup required. Looks for popular editors installed in your computer and
   automatically sets them up for you.
 - No longer a five step process to edit a parameter with an external editor.
-- When deleting a parameter value it is doesn't leave the parameter in an error state.
+- When deleting a parameter value it doesn't leave it in an error state.
 
 ### Quick Installation
 
