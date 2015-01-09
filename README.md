@@ -29,7 +29,7 @@ Replacing `Alt + E`:
 
 - Finally, set your custom hotkey for `Edit w/ External Editor`.
 
-- Example setting is provied in [HotKeyOverride](HotKeyOverride.example).
+- Example setting is provided: [HotKeyOverride](master/HotKeyOverrides.example).
 
 ### Caveat
 - Problem: Hotkey doesn't work when editing snippets (multiple line strings) such
@@ -61,8 +61,7 @@ Houdini only supports ASCII paths.
 
 Make sure to quote your path if it contains spaces or arguments, refer to [wiki](wiki-manual-setup) for help.
 
-If you use TextEdit make sure to quit the application and not the window.
-If you accidently close the window, open TextEdit again and quit the application.
+If you use TextEdit make sure to quit the application and not the window. If you accidently close the window, open TextEdit again and quit the application.
 
 ----------------------------------
 ### Manual Setup
@@ -73,9 +72,9 @@ If you accidently close the window, open TextEdit again and quit the application
 
 ### Uninstall
 In your Houdini home folder:
+- Go to `Edit > Configure External Editor` and set `Use System Setting`
 - Quit Houdini.
-- Remove `PARMmenu.xml`, `Main.xml`, and `extEditorParm.py`
-- Remove any lines starting with `VISUAL` in `houdini.env`
+- Remove `PARMmenu.xml`, `MainMenuCommon.xml`, and `extEditorParm.py`
 
 ----------------------------------
 
