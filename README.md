@@ -8,7 +8,7 @@
 - When deleting a parameter value it is doesn't leave the parameter in an error state.
 
 ### Quick Installation
-Add the following files to your [Houdini preference folder](README.md#houdini-preference-folder):
+Add the following files to your [Houdini home folder](README.md#houdini-preference-folder):
 - `PARMmenu.xml`
 - `MainMenuCommon.xml`
 - `extEditor.py`
@@ -84,7 +84,7 @@ In your Houdini home folder:
 - Submit ideas or pull requests!
 
 ----------------------------------
-### Houdini Preference Folder
+### Houdini Home Folder
 
 The default location of your Houdini home folder:
 
