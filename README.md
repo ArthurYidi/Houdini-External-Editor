@@ -40,6 +40,8 @@ Example setting: [HotKeyOverride](/HotKeyOverrides.example).
 - Solution: Click outside the text editor and hover the parameter name then
   click your hotkey.
 
+![hotkey-bug](https://raw.githubusercontent.com/wiki/ArthurYidi/Houdini-External-Editor/images/hotkey-bug.png)
+
 <sup>[1] Houdini has a bug that disables hotkeys of the parameter menu when the
 context is inside the snippet text editor.</sup> 
 
