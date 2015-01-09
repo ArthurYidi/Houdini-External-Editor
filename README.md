@@ -29,7 +29,7 @@ Replacing `Alt + E`:
 
 - Finally, set your custom hotkey for `Edit w/ External Editor`.
 
-- Example setting is provied in (HotKeyOverride)[HotKeyOverride.example].
+- Example setting is provied in [HotKeyOverride](HotKeyOverride.example).
 
 ### Caveat
 - Problem: Hotkey doesn't work when editing snippets (multiple line strings) such
