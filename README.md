@@ -24,19 +24,14 @@ To try out the plugin without editing your home folder:
 -----------------------------------
 
 ### Hotkeys
-Replacing 'Alt + E':
-- In 'Edit > Hotkeys...' press 'Search' for 'Open Editor':
-    - Remove /Houdini/Panes/Texport/Open Editor
-    - Remove /Input Fields/Open Editor
+Replacing `Alt + E`:
+- In `Edit > Hotkeys...` press `Search` for `Open Editor`:
+    - Remove `/Houdini/Panes/Texport/Open Editor`
+    - Remove `/Input Fields/Open Editor`
 
-- Then   
+- Finally, set your custom hotkey for `Edit w/ External Editor`.
 
-Or
-
-- Append the following to HotkeyOverrides in your Houdini home folder:
-    h.pane.parms.edit_expression_external	"Edit w/ External Editor"	"Custom Menu Operation: Edit w/ External Editor"	 Alt+E
-    h.pane.textport.editor	"Open Editor"	"Open Editor"	
-    inputfield.editor	"Open Editor"	"Open editor"	
+- Example setting is provied in (HotKeyOverride)[HotKeyOverride.example].
 
 ### Caveat
 - Problem: Hotkey doesn't work when editing snippets (multiple line strings) such
