@@ -74,7 +74,7 @@ If you use TextEdit make sure to quit the application and not the window. If you
 ----------------------------------
 ### Editor Syntax Configuration
 
-[Refer to wiki for configuring your editor to support `VEX` and `HScript`](https://github.com/ArthurYidi/Houdini-External-Editor/wiki/Manual-External-Editor-Configuration)
+[Refer to wiki for configuring your editor to support `VEX` and `HScript`](https://github.com/ArthurYidi/Houdini-External-Editor/wiki/Editor-Syntax-Configuration)
 
 ----------------------------------
 
