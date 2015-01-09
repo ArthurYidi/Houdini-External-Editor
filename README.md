@@ -35,8 +35,8 @@ Replacing `Alt + E`:
 - Solution: Click outside the text editor and hover the parameter name then
   click your hotkey.
 
-<sup>[1]</sup> Houdini has a bug that disables hotkeys of the parameter menu when the
-context is inside the snippet text editor.
+<sup>[1] Houdini has a bug that disables hotkeys of the parameter menu when the
+context is inside the snippet text editor.</sup> 
 
 ### Troubleshooting 
 - Go to `Edit > Configure External Editor` to edit your configuration.
