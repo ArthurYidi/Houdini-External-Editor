@@ -8,7 +8,7 @@
 - When deleting a parameter value it is doesn't leave the parameter in an error state.
 
 ### Quick Installation
-Add the following files to your [Houdini home folder](README.md#houdini-preference-folder):
+Add the following files to your [Houdini home folder](#houdini-preference-folder):
 - `PARMmenu.xml`
 - `MainMenuCommon.xml`
 - `extEditor.py`
