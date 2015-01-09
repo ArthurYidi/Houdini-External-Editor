@@ -1,5 +1,7 @@
 # Houdini Edit w/ External Editor
 
+![parm-menu](https://raw.githubusercontent.com/wiki/ArthurYidi/Houdini-External-Editor/images/parm-menu.png)
+
 ### Features
 - Quickly edit parameters and snippets with your favorite editor.
 - No manual setup required. Looks for popular editors installed in your computer and
