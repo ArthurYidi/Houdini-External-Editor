@@ -56,13 +56,12 @@ return to Houdini, and feature fast start up times.
 
 If using Sublime add the following options to disable opening old unsaved edits:
 
-    `"hot_exit": false,`
-    `"remember_open_files": false,`
+    "hot_exit": false,
+    "remember_open_files": false,
 
 Houdini only supports ASCII paths.
 
-Make sure to quote your path if it contains spaces or arguments, see manual
-setup examples below.
+Make sure to quote your path if it contains spaces or arguments, refer to [wiki](wiki/Manual-External-Editor-Configuration) for help.
 
 If you use TextEdit make sure to quit the application and not the window.
 If you accidently close the window, open TextEdit again and quit the application.
@@ -73,6 +72,7 @@ If you accidently close the window, open TextEdit again and quit the application
 [Refer to wiki for more information and examples.](wiki/Manual-External-Editor-Configuration)
 
 ----------------------------------
+
 ### Uninstall
 In your Houdini home folder:
 - Quit Houdini.
