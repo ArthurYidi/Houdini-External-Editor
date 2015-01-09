@@ -59,14 +59,14 @@ If using Sublime add the following options to disable opening old unsaved edits:
 
 Houdini only supports ASCII paths.
 
-Make sure to quote your path if it contains spaces or arguments, refer to [wiki][wiki-manual-setup] for help.
+Make sure to quote your path if it contains spaces or arguments, refer to [wiki](https://github.com/ArthurYidi/Houdini-External-Editor/wiki/Manual-External-Editor-Configuration) for help.
 
 If you use TextEdit make sure to quit the application and not the window. If you accidently close the window, open TextEdit again and quit the application.
 
 ----------------------------------
 ### Manual Setup
 
-[Refer to wiki for more information and examples.][wiki-manual-setup]
+[Refer to wiki for more information and examples.](https://github.com/ArthurYidi/Houdini-External-Editor/wiki/Manual-External-Editor-Configuration)
 
 ----------------------------------
 
@@ -95,6 +95,5 @@ The default location of your Houdini home folder:
 
 ### License
 Copyright (C) 2015  Arthur Yidi
-BSD Simplified
 
-[wiki-manual-setup][https://github.com/ArthurYidi/Houdini-External-Editor/wiki/Manual-External-Editor-Configuration]
+BSD Simplified
