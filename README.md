@@ -8,6 +8,9 @@
 - When deleting a parameter value it is doesn't leave the parameter in an error state.
 
 ### Quick Installation
+
+- [Download](https://github.com/ArthurYidi/Houdini-External-Editor/archive/master.zip)
+
 Add the following files to your [Houdini home folder](#houdini-home-folder):
 - `PARMmenu.xml`
 - `MainMenuCommon.xml`
