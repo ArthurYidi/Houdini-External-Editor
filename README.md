@@ -73,7 +73,11 @@ If you use TextEdit make sure to quit the application and not the window.
 If you accidently close the window, open TextEdit again and quit the application.
 
 ----------------------------------
+### Manual Setup
 
+[Refer to wiki for more information and examples.](Manual-External-Editor-Configuration)
+
+----------------------------------
 ### Uninstall
 In your Houdini home folder:
 - Quit Houdini.
