@@ -89,8 +89,8 @@ In your Houdini home folder:
 
 The default location of your Houdini home folder:
 
-Mac: `~/Library/Preferences/houdini/13.0`
-Linux & Windows: `~/houdini13.0`
+- Mac: `~/Library/Preferences/houdini/13.0`
+- Linux & Windows: `~/houdini13.0`
 
 ----------------------------------
 
