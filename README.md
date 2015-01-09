@@ -70,7 +70,7 @@ If you accidently close the window, open TextEdit again and quit the application
 ----------------------------------
 ### Manual Setup
 
-[Refer to wiki for more information and examples.](https://github.com/ArthurYidi/Houdini-External-Editor/wiki/Manual-External-Editor-Configuration)
+[Refer to wiki for more information and examples.](wiki/Manual-External-Editor-Configuration)
 
 ----------------------------------
 ### Uninstall
