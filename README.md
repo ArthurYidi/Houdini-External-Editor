@@ -72,59 +72,6 @@ setup examples below.
 If you use TextEdit make sure to quit the application and not the window.
 If you accidently close the window, open TextEdit again and quit the application.
 
------------------------------------
-
-### Manual Configuration
-Houdini
-
-Go to `Edit > Configure External Editor` and follow the prompts.
-
-System Wide
-
-Mac & Linux
-
-Edit `~/.bash_profile`:
-    `export VISUAL=/path/to/editor`
-
-Windows 7+
-`setx VISUAL C:\path\to\editor`
-
-
-### Manual Environment Variable Setup
-In `Edit > Configure External Editor` choose `Other` or `Edit Current Setting`.
-Then using the following examples to setup your editor.
-
-Sublime
-
-subl -w
-"/Applications/Sublime Text 3.app/Contents/SharedSupport/bin/subl" -w
-"/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" -w
-
-MacVim
-
-mvim -f
-/Applications/MacVim.app/Contents/MacOS/Vim -gfn
-
-gvim
-
-gvim -f
-
-TextMate
-
-/Applications/TextMate.app/Contents/Resources/mate -w
-
-Emacs
-
-/Applications/Emacs.app/Contents/MacOS/Emacs
-
-TextWrangler
-
-/Applications/TextWrangler.app/Contents/Helpers/edit -w
-
-Xcode
-
-/Applications/Xcode.app/Contents/MacOS/Xcode
-
 ----------------------------------
 
 ### Uninstall
