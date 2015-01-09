@@ -32,7 +32,7 @@ Replacing `Alt + E`:
 
 - Finally, set your custom hotkey for `Edit in External Editor`.
 
-- Example setting is provided: [HotKeyOverride](/HotKeyOverrides.example).
+Example setting: [HotKeyOverride](/HotKeyOverrides.example).
 
 ### Caveat
 - Problem: Hotkey doesn't work when editing snippets (multiple line strings) such
