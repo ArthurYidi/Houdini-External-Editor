@@ -8,12 +8,10 @@
 - When deleting a parameter value it is doesn't leave the parameter in an error state.
 
 ### Quick Installation
-Add the files `PARMmenu.xml`, `MainMenuCommon.xml`, and `extEditor.py` to your Houdini home folder:
-    Mac
-    `$HOME/Library/Preferences/houdini/13.0`
-
-    Linux & Windows
-    `$HOME/houdini13.0`
+Add the following files to your Houdini home folder:
+- `PARMmenu.xml`
+- `MainMenuCommon.xml`
+- `extEditor.py`
 
 To try out the plugin without editing your home folder:
     Add the files where your `.hip` file is located.
@@ -85,6 +83,19 @@ In your Houdini home folder:
 - Watching for changes and not halting the main thread! (Also removes confusion)
 - Editing multiple parameters at the same time.
 - Submit ideas or pull requests!
+
+----------------------------------
+### Houdini Preference Folder
+
+The default location of your Houdini home folder:
+
+Mac
+`~/Library/Preferences/houdini/13.0`
+
+Linux & Windows
+`~/houdini13.0`
+
+----------------------------------
 
 ### License
 Copyright (C) 2015  Arthur Yidi
