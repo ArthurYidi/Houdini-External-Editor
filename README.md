@@ -1,4 +1,4 @@
-# Houdini Edit w/ External Editor
+# Houdini Edit in External Editor
 
 ![parm-menu](https://raw.githubusercontent.com/wiki/ArthurYidi/Houdini-External-Editor/images/parm-menu.png)
 
@@ -30,7 +30,7 @@ Replacing `Alt + E`:
     - Remove `/Houdini/Panes/Texport/Open Editor`
     - Remove `/Input Fields/Open Editor`
 
-- Finally, set your custom hotkey for `Edit w/ External Editor`.
+- Finally, set your custom hotkey for `Edit in External Editor`.
 
 - Example setting is provided: [HotKeyOverride](/HotKeyOverrides.example).
 
