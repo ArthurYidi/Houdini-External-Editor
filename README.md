@@ -67,7 +67,7 @@ If you use TextEdit make sure to quit the application and not the window. If you
 [Refer to wiki for more information and examples.](https://github.com/ArthurYidi/Houdini-External-Editor/wiki/Manual-External-Editor-Configuration)
 
 ----------------------------------
-### Manual Setup
+### Editor Syntax Configuration
 
 [Refer to wiki for configuring your wiki to support `VEX` and `HScript`](https://github.com/ArthurYidi/Houdini-External-Editor/wiki/Manual-External-Editor-Configuration)
 
