@@ -31,11 +31,11 @@ Replacing `Alt + E`:
 
 ### Caveat
 - Problem: Hotkey doesn't work when editing snippets (multiple line strings) such
-  as Wrangle nodes. [1]
+  as Wrangle nodes. <sup>[1]</sup>
 - Solution: Click outside the text editor and hover the parameter name then
   click your hotkey.
 
-[1] Houdini has a bug that disables hotkeys of the parameter menu when the
+<sup>[1]</sup> Houdini has a bug that disables hotkeys of the parameter menu when the
 context is inside the snippet text editor.
 
 ### Troubleshooting 
