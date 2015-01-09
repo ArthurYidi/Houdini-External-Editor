@@ -13,11 +13,10 @@ Add the following files to your [Houdini home folder](#houdini-home-folder):
 - `MainMenuCommon.xml`
 - `extEditor.py`
 
-<div color="#0000FF">
 To try out the plugin without editing your home folder: Add the files where your `.hip` file is located.
 
 If your current editor configuration is not working go to `Edit > Configure External Editor` to set it up.
-</div>
+
 -----------------------------------
 
 ### Hotkeys
