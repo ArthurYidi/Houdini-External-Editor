@@ -355,7 +355,7 @@ def configExternalEditor():
     if manualEditSelected:
         example = '"/Applications/External Editor/exec" -arg'
         if OS.startswith('win'):
-            example = '"C:\Program Files\External Editor\editor.exe" -arg' 
+            example = r'"C:\Program Files\External Editor\editor.exe" -arg'
 
         (option, visualPath) = hou.ui.readMultiInput(
             'Edit path and arguments for external editor.\n',
