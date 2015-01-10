@@ -99,11 +99,14 @@ In your Houdini home folder:
 The default location of your Houdini home folder:
 
 - Mac: `~/Library/Preferences/houdini/13.0`
-- Linux & Windows: `~/houdini13.0`
+- Linux: `~/houdini13.0`
+- Windows: `%HOME%/houdini13.0`
 
 Also accessed by:
 
 `>>> hou.homeHoudiniDirectory()`
+
+[Refer to docs for more help.](https://www.sidefx.com/docs/houdini13.0/basics/config_env)
 
 ----------------------------------
 
