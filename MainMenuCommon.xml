@@ -4,6 +4,8 @@ Copyright (C) 2015  Arthur Yidi
 License: BSD Simplified
 
 Add Edit > Configure External Editor
+
+version = 0.0.1
 -->
 <mainMenu>
     <menuBar>

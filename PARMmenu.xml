@@ -12,6 +12,8 @@ Problem:
         /config/Applications/SI13.0.621/SI_Textport.ui
         /config/Applications/SI13.0.621/SI_TextEditor.ui
     - /Input Fields/Open Editor (inputfield.editor)
+
+version = 0.0.1
 -->
 <menuDocument>
     <menu>
