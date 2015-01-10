@@ -15,9 +15,8 @@ import sys
 import subprocess
 import tempfile
 import shlex
-from bisect import bisect_left
-import hutil.enum
 import argparse
+from bisect import bisect_left
 
 OS = sys.platform.lower()
 
@@ -61,7 +60,10 @@ def editParmExternal(editor, parm):
     elif defaultLang == hou.exprLanguage.Python:
         suff = '.py'
 
-    with tempfile.NamedTemporaryFile(mode='w', prefix=pref, suffix=suff, delete=False) as f:
+    with tempfile.NamedTemporaryFile(mode='w',
+                                     prefix=pref,
+                                     suffix=suff,
+                                     delete=False) as f:
         f.write(parmValue)
         f.close()
 
@@ -97,15 +99,14 @@ def editParmExternal(editor, parm):
 
         with open(f.name, 'r') as result:
             lines = result.readlines()
-            hasLines = len(lines)
 
-            if hasLines:
+            if lines:
                 lines[-1] = lines[-1].rstrip()
                 newParmValue = ''.join(lines)
                 if parmIsExpression:
                     keyframe.setExpression(newParmValue)
                 else:
-                    if hasLines > 1:
+                    if len(lines) > 1:
                         if parmType == hou.parmTemplateType.String:
                             parm.set(newParmValue)
                         else:
@@ -322,7 +323,7 @@ def configExternalEditor():
     for i in range(len(installedEditors)):
         editorNum = installedEditors[i]
         editorChoices.append("%d) %s" % (i+1, editors[editorNum]['name']))
-    if len(editorChoices):
+    if editorChoices:
         editorChoices.append('-' * 60)
     if editor:
         editorChoices.append('- Edit Current Setting')
@@ -338,7 +339,7 @@ def configExternalEditor():
         title='Configure External Editor',
         exclusive=True)
 
-    if not len(selectedEditor):
+    if not selectedEditor:
         return None
     
     selectedEditor = selectedEditor[0]
@@ -434,7 +435,6 @@ def configExternalEditor():
                     '%s\n'
                     'Value:\n'
                     '%s\n' % (houdiniEnv, insert))
-
     return editor
 
 
