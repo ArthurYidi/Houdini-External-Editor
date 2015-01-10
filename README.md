@@ -100,7 +100,7 @@ The default location of your Houdini home folder:
 
 - Mac: `~/Library/Preferences/houdini/13.0`
 - Linux: `~/houdini13.0`
-- Windows: `%HOME%/houdini13.0`
+- Windows: `~/Documents/houdini13.0`
 
 Also accessed by:
 
