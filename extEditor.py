@@ -6,8 +6,8 @@ Houdini External Editor
 Launcher & Configuration
 
 Script is executed by the Menu options:
-- Edit w/ External Editor
-- Configure External Editor
+- Expressions > Edit in External Editor
+- Edit > Configure External Editor
 
 """
 import os
@@ -61,10 +61,9 @@ def editParmExternal(editor, parm):
     elif defaultLang == hou.exprLanguage.Python:
         suff = '.py'
 
-    with tempfile.NamedTemporaryFile(prefix=pref, suffix=suff) as f:
+    with tempfile.NamedTemporaryFile(mode='w', prefix=pref, suffix=suff, delete=False) as f:
         f.write(parmValue)
-        f.flush()
-        os.fsync(f.fileno())
+        f.close()
 
         hou.ui.setStatusMessage(
             '  Close external editor window or '
@@ -80,9 +79,9 @@ def editParmExternal(editor, parm):
 
         if status != 0:
             options = hou.ui.displayMessage(
-                'External editor was not found.\n',
+                'Unable to open external editor.\n',
                 help='Change editor configuration and try again.\n\n',
-                details=str('\n'.join(editorargs)) + '\n\n' + str(error),
+                details=str('\n'.join(editorargs)) + '\nExit Code:\n' + str(error),
                 buttons=('Configure', 'Cancel'),
                 close_choice=1,
                 severity=hou.severityType.Error)
@@ -91,11 +90,12 @@ def editParmExternal(editor, parm):
                 editor = configExternalEditor()
                 if editor is not None:
                     editParmExternal(editor, parm)
+
             return
 
         hou.ui.setStatusMessage('')
 
-        with open(f.name) as result:
+        with open(f.name, 'r') as result:
             lines = result.readlines()
             hasLines = len(lines)
 
@@ -145,6 +145,8 @@ def editParmExternal(editor, parm):
             # update keyframe
             if keyframe:
                 parm.setKeyframe(keyframe)
+        # delete temp file
+        os.remove(f.name)
 
 
 def configExternalEditor():
@@ -196,6 +198,11 @@ def configExternalEditor():
                 'command' : '"{}/Contents/MacOS/Atom" -fw'
             },
             {
+                'name' : 'PyCharm',
+                'search' : 'com.jetbrains.pycharm',
+                'command' : '"{}/Contents/MacOS/pycharm"'
+            },
+            {
                 'name' : 'Xcode',
                 'search' : 'com.apple.dt.Xcode',
                 'command' : '"{}/Contents/MacOS/Xcode"'
@@ -236,28 +243,33 @@ def configExternalEditor():
         'win' : [
             {
                 'name' : 'Sublime 3',
-                'search' : r'SOFTWARE\Microsoft\Windows\CurrentVersion\App',
+                'search' : ['subl', r'C:\Program Files\Sublime Text 3\sublime_text.exe'],
                 'command' : r'"{}" -w'
             },
             {
                 'name' : 'Sublime 2',
-                'search' : r'SOFTWARE\Microsoft\Windows\CurrentVersion\App',
+                'search' : ['subl', r'C:\Program Files\Sublime Text 2\sublime_text.exe'],
                 'command' : r'"{}" -w'
             },
             {
                 'name' : 'Notepad++',
-                'search' : r'SOFTWARE\Microsoft\Windows\CurrentVersion\App',
-                'command' : r'"{}" -nosession -notabbar'
+                'search' : ['notepad++', r'C:\Program Files (x86)\Notepad++\notepad++.exe'],
+                'command' : '"{}" -nosession -notabbar'
             },
             {
                 'name' : 'Vim',
-                'search' : r'',
-                'command' : r'"{}" -gfn'
+                'search' : ['gvim', r'C:\Program Files (x86)\Vim\vim74\gvim.exe'],
+                'command' : '"{}" -gfn'
+            },
+            {
+                'name' : 'UltraEdit',
+                'search' : ['Uedit32', r'C:\Program Files (x86)\IDM Computer Solutions\UltraEdit\Uedit32.exe'],
+                'command' : '"{}"'
             },
             {
                 'name' : 'Emacs',
-                'search' : r'',
-                'command' : r'"{}" -w'
+                'search' : ['emacs'],
+                'command' : '"{}"'
             }
         ]
     }
@@ -283,8 +295,11 @@ def configExternalEditor():
                     editor['command'] = editor['command'].format(out)
                     installedEditors.append(i)
 
-    elif 'linux' in OS:
-        editors = editorsList['linux']
+    else:
+        if 'linux' in OS:
+            editors = editorsList['linux']
+        else:
+            editors = editorsList['win']
 
         # in python 3 use shutil.which 
         from distutils.spawn import find_executable
@@ -298,48 +313,49 @@ def configExternalEditor():
                     installedEditors.append(i)
                     break
 
-    else:
-        editors = editorsList['win']
-        # TODO implement me
-        pass
-
     selectedEditor = None
     manualEditSelected = False
     editor = hou.getenv('VISUAL') or hou.getenv('EDITOR') or ''
+    editorChoices = []
 
-    if len(installedEditors):
-        editorChoices = []
-        for i in range(len(installedEditors)):
-            editorNum = installedEditors[i]
-            editorChoices.append("%d) %s" % (i+1, editors[editorNum]['name']))
+    # select option
+    for i in range(len(installedEditors)):
+        editorNum = installedEditors[i]
+        editorChoices.append("%d) %s" % (i+1, editors[editorNum]['name']))
+    if len(editorChoices):
         editorChoices.append('-' * 60)
-        if editor:
-            editorChoices.append('- Edit Current Setting')
+    if editor:
+        editorChoices.append('- Edit Current Setting')
+        editorChoices.append('- Use System Setting')
+    else:
+        editorChoices.append('- Other')
+
+    # select from list or apply, edit, cancel
+    selectedEditor = hou.ui.selectFromList(
+        editorChoices,
+        default_choices=(-1,),
+        message='Select Editor:\n',
+        title='Configure External Editor',
+        exclusive=True)
+
+    if not len(selectedEditor):
+        return None
+    
+    selectedEditor = selectedEditor[0]
+    if selectedEditor > len(installedEditors) - 1:
+        if '- Use System Setting' in editorChoices[selectedEditor]:
+            editor = ''
         else:
-            editorChoices.append('- Other')
-
-        # select from list or apply, edit, cancel
-        selectedEditor = hou.ui.selectFromList(
-            editorChoices,
-            default_choices=(-1,),
-            message='Select Editor:\n',
-            title='Configure External Editor',
-            exclusive=True)
-
-        if not len(selectedEditor):
-            return None
-        
-        selectedEditor = selectedEditor[0]
-        if selectedEditor > len(installedEditors) - 1:
             manualEditSelected = True
-        else:
-            editor = editors[installedEditors[selectedEditor]]['command']
+    else:
+        editor = editors[installedEditors[selectedEditor]]['command']
 
-    example = '"/Applications/External Editor/exec" -arg'
-    if OS.startswith('win'):
-        example = '"C:\Program Files\External Editor\editor.exe" -arg' 
+    # manually edit variable
+    if manualEditSelected:
+        example = '"/Applications/External Editor/exec" -arg'
+        if OS.startswith('win'):
+            example = '"C:\Program Files\External Editor\editor.exe" -arg' 
 
-    if manualEditSelected or not len(installedEditors):
         (option, visualPath) = hou.ui.readMultiInput(
             'Edit path and arguments for external editor.\n',
             ['VISUAL'],
@@ -371,6 +387,7 @@ def configExternalEditor():
 
     # save setting to houdini.env
     try:
+        # check if file is rw / nosave
         f = open(houdiniEnv, 'r+')
     except IOError as e:
         hou.ui.displayMessage(
@@ -402,9 +419,14 @@ def configExternalEditor():
 
         with open(houdiniEnv, 'w') as f:
             f.writelines(lines)
+   
+        restartMessage = ''
+        if removeSetting:
+            restartMessage = '\nImportant:\nRestart Houdini for new settings to take effect.\n\n'
+            insert = 'VISUAL variables were removed.'
 
         hou.ui.displayMessage(
-            'External editor setting was successfully saved.\n',
+            'External editor setting was successfully saved.\n%s' % restartMessage,
             help ='Use "Edit > Configure External Editor"\n'
                   'to change the new setting.',
             details='Editor setting was saved to:\n'
@@ -427,17 +449,20 @@ def main():
         editor =  args.launch or hou.getenv('VISUAL') or hou.getenv('EDITOR')
 
         if not editor:
-            option = hou.ui.displayMessage(
-                'External editor is not configured.',
-                help='Would you like to configure it now?\n\n\n'
-                     'Using system default editor.\n',
-                details='Configure the VISUAL or EDITOR environment variable.',
-                buttons=('Yes', 'No'),
-                close_choice=1,
-                severity=hou.severityType.ImportantMessage)
+            if not hasattr(hou.session, 'noEditorMessage'):
+                hou.session.noEditorMessage = True
+                option = hou.ui.displayMessage(
+                    'External editor is not configured.',
+                    help='Would you like to configure it now?\n\n\n'
+                         'Using system default editor.\n'
+                         'Message will be displayed once.\n',
+                    details='Configure the VISUAL or EDITOR environment variable.',
+                    buttons=('Yes', 'No'),
+                    close_choice=1,
+                    severity=hou.severityType.ImportantMessage)
 
-            if option == 0:
-                editor = configExternalEditor()
+                if option == 0:
+                    editor = configExternalEditor()
 
             # open using system default
             if not editor:
@@ -446,7 +471,7 @@ def main():
                 elif 'linux' in OS:
                     editor = 'xdg-open'
                 else:
-                    editor = 'start'
+                    editor = 'notepad.exe'
 
         if len(kwargs['parms']):
             parm = kwargs['parms'][0]
