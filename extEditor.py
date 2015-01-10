@@ -1,15 +1,16 @@
 # Copyright (C) 2015  Arthur Yidi
 # License: BSD Simplified
 """
-
 Houdini External Editor
 Launcher & Configuration
 
 Script is executed by the Menu options:
 - Expressions > Edit in External Editor
 - Edit > Configure External Editor
-
 """
+
+__version__ = "0.0.1"
+
 import os
 import sys
 import subprocess
@@ -92,7 +93,6 @@ def editParmExternal(editor, parm):
                 editor = configExternalEditor()
                 if editor is not None:
                     editParmExternal(editor, parm)
-
             return
 
         hou.ui.setStatusMessage('')
@@ -474,7 +474,7 @@ def main():
                 else:
                     editor = 'notepad.exe'
 
-        if len(kwargs['parms']):
+        if kwargs['parms']:
             parm = kwargs['parms'][0]
             editParmExternal(editor, parm)
 
