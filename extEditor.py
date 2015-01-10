@@ -384,6 +384,7 @@ def configExternalEditor():
         hou.putenv('VISUAL', editor)
 
     houdiniEnv = os.path.join(hou.homeHoudiniDirectory(), 'houdini.env')
+    houdiniEnv = os.path.normpath(houdiniEnv)
 
     # save setting to houdini.env
     try:
