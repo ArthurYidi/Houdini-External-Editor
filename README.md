@@ -25,14 +25,13 @@ If your current editor configuration is not working go to `Edit > Configure Exte
 -----------------------------------
 
 ### Hotkeys
-Replacing `Alt + E`:
-- In `Edit > Hotkeys...` press `Search` for `Open Editor`:
-    - Remove `/Houdini/Panes/Texport/Open Editor`
-    - Remove `/Input Fields/Open Editor`
 
-- Finally, set your custom hotkey for `Edit in External Editor`.
+- In `Edit > Hotkeys...`:
+    - `Search` for `Edit in External Editor`
+    - Set your hotkey to `Alt + E`
+- Or `Shift + Control + Alt` and `Click` on `Edit in External Editor` and then set the hotkey.
 
-Example setting: [HotKeyOverride](/HotKeyOverrides.example).
+__Note__: Don't disable the other `Alt + E` hotkeys, since that will disable opening the external editor when inside `Edit Operator Type Properties`.
 
 ### Caveat
 - Problem: Hotkey doesn't work when editing snippets (multiple line strings) such
@@ -42,8 +41,7 @@ Example setting: [HotKeyOverride](/HotKeyOverrides.example).
 
 ![hotkey-bug](https://raw.githubusercontent.com/wiki/ArthurYidi/Houdini-External-Editor/images/hotkey-bug.png)
 
-<sup>[1] Houdini has a bug that disables hotkeys of the parameter menu when the
-context is inside the snippet text editor.</sup> 
+<sup>[1] Houdini switches the context when inside a text input therefore disabling the hotkeys of the parameter menu.</sup> 
 
 ### Troubleshooting 
 - Go to `Edit > Configure External Editor` to edit your configuration.
