@@ -100,7 +100,7 @@ In your Houdini home folder:
 ### Upcoming Features
 - Watching for changes and not halting the main thread! (Also removes confusion)
 - Editing multiple parameters at the same time.
-- If the parameter is a file provide option an to open the file instead.
+- If the parameter is a file provide option to open the file instead.
 - Submit ideas or pull requests!
 
 ----------------------------------
