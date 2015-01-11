@@ -69,6 +69,14 @@ Make sure to quote your path if it contains spaces or arguments, refer to [wiki]
 
 If you use TextEdit make sure to quit the application and not the window. If you accidently close the window, open TextEdit again and quit the application.
 
+To reload scripts located outside Houdini use the following (editing more than module, [see here](http://pyunit.sourceforge.net/notes/reloading.html):
+
+    import outside_script
+    reload(outside_script)
+    outside_script.do_something()
+
+Place your Python scripts inside `python2.7libs/` or `scripts/python/` next to your `.hip` file.
+
 ----------------------------------
 ### Manual Setup
 
@@ -108,7 +116,7 @@ Also accessed by:
 
 `>>> hou.homeHoudiniDirectory()`
 
-[Refer to docs for more help.](https://www.sidefx.com/docs/houdini13.0/basics/config_env)
+[Refer to docs for more help.](https://www.sidefx.com/docs/houdini13.0/hom/independent)
 
 ----------------------------------
 
