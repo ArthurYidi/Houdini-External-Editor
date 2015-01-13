@@ -406,8 +406,6 @@ def configExternalEditor():
             lines = f.readlines()
             for i in reversed(range(len(lines))):
                 line = lines[i].strip()
-                if line.startswith('#'):
-                    continue
                 if line.startswith('VISUAL'):
                     if removeSetting:
                         lines[i] = ''
