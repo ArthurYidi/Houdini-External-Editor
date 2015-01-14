@@ -116,7 +116,7 @@ Also accessed by:
 
 `>>> hou.homeHoudiniDirectory()`
 
-[Refer to docs for more help.](https://www.sidefx.com/docs/houdini13.0/hom/independent)
+[Refer to docs for more help.](http://www.sidefx.com/docs/current/basics/config_env)
 
 ----------------------------------
 
