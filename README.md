@@ -56,7 +56,7 @@ __Note__: Don't disable the other `Alt + E` or `Cmd + E` hotkeys, since that wil
 
 <sup>[1] Houdini 14 & 13 switches the context when inside a text input therefore disabling the hotkeys of the parameter menu.</sup>
 
-__Houdini 14.0.201.13__: (Bug) Inside the `Edit Expression` window pressing `Cmd + E` doesn't open External Editor. `/Houdini/Panes/Textport/Open Editor` is missing the new `Cmd + E` shortcut, simply add `Cmd + E` on top of `Alt + E` in `Hotkeys...`. Reset all Hotkeys removes the new `Cmd + E`.
+__Houdini 14.0.201.13__: (Bug) Inside the `Edit Expression` window pressing `Cmd + E` doesn't open External Editor. `/Houdini/Panes/Textport/Open Editor` is missing the new `Cmd + E` shortcut, simply add `Cmd + E` on top of `Alt + E` in `Hotkeys...`. Reset all Hotkeys button removes the new `Cmd + E`.
 
 __Houdini 14 & 13__: (Bug) Hotkeys other than `Cmd + E` or `Alt + E` don't work.
 
