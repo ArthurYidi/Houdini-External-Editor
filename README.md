@@ -46,6 +46,7 @@ Or
 __Note__: Don't disable the other `Alt + E` or `Cmd + E` hotkeys, since that will disable the hotkey for opening with external editor inside `Edit Operator Type Properties`.
 
 __Houdini 14.0.201.13__: (Bug) Inside the `Edit Expression` window pressing `Cmd + E` doesn't open External Editor. `/Houdini/Panes/Textport/Open Editor` is missing the new `Cmd + E` shortcut, simply add `Cmd + E` on top of `Alt + E` in `Hotkey...`. Reset all Hotkeys removes the new `Cmd + E`.
+
 __Houdini 14 & 13__: (Bug) Hotkeys other than `Cmd + E` or `Alt + E` don't work.
 
 ### Caveat
