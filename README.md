@@ -8,6 +8,7 @@
   automatically sets them up for you.
 - No longer a five step process to edit a parameter with an external editor.
 - When deleting a parameter value it doesn't leave it in an error state.
+- Works with Houdini 13 and 14
 
 ### Quick Installation
 
@@ -26,6 +27,14 @@ If your current editor configuration is not working go to `Edit > Configure Exte
 
 ### Hotkeys
 
+**Houdini 14**
+
+- In `Edit > Hotkeys...`:
+    - `Search` for `Edit in External Editor`
+    - Set your hotkey to `Cmd + E`
+
+**Houdini 13**
+
 - In `Edit > Hotkeys...`:
     - `Search` for `Edit in External Editor`
     - Set your hotkey to `Alt + E`
@@ -34,7 +43,10 @@ Or
 
 - `Shift + Control + Alt` and `Click` on `Edit in External Editor` and then set the hotkey.
 
-__Note__: Don't disable the other `Alt + E` hotkeys, since that will disable the hotkey for opening with external editor inside `Edit Operator Type Properties`.
+__Note__: Don't disable the other `Alt + E` or `Cmd + E` hotkeys, since that will disable the hotkey for opening with external editor inside `Edit Operator Type Properties`.
+
+__Houdini 14.0.201.13__: (Bug) Inside the `Edit Expression` window pressing `Cmd + E` doesn't open External Editor. `/Houdini/Panes/Textport/Open Editor` is missing the new `Cmd + E` shortcut, simply add `Cmd + E` on top of `Alt + E` in `Hotkey...`. Reset all Hotkeys removes the new `Cmd + E`.
+__Houdini 14 & 13__: (Bug) Hotkeys other than `Cmd + E` or `Alt + E` don't work.
 
 ### Caveat
 - Problem: Hotkey doesn't work when editing snippets (multiple line strings) such
@@ -44,7 +56,7 @@ __Note__: Don't disable the other `Alt + E` hotkeys, since that will disable the
 
 ![hotkey-bug](https://raw.githubusercontent.com/wiki/ArthurYidi/Houdini-External-Editor/images/hotkey-bug.png)
 
-<sup>[1] Houdini switches the context when inside a text input therefore disabling the hotkeys of the parameter menu.</sup> 
+<sup>[1] Houdini switches the context when inside a text input therefore disabling the hotkeys of the parameter menu. Houdini 14 continues to do this hack.</sup> 
 
 ### Troubleshooting 
 - Go to `Edit > Configure External Editor` to edit your configuration.
