@@ -14,7 +14,7 @@ version = 0.0.1
             <parent>edit_menu</parent>
             <insertAfter>h.aliases</insertAfter>
 
-            <scriptPath>./extEditor.py</scriptPath>
+            <scriptPath>scripts/extEditor.py</scriptPath>
             <scriptArgs>--config</scriptArgs>
         </addScriptItem>
     </menuBar>

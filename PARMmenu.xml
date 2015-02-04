@@ -22,7 +22,7 @@ version = 0.0.1
             <parent>expression_menu</parent>
             <insertAfter>edit_expression</insertAfter>
 
-            <scriptPath>./extEditor.py</scriptPath>
+            <scriptPath>scripts/extEditor.py</scriptPath>
             <scriptArgs>--launch</scriptArgs>
         </addScriptItem>
     </menu>
