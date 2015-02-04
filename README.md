@@ -17,7 +17,6 @@
 Add the following files to your [Houdini home folder](#houdini-home-folder):
 - `PARMmenu.xml`
 - `MainMenuCommon.xml`
-- `scripts/extEditor.py`
 
 To try out the plugin without editing your home folder: Add the files where your `.hip` file is located.
 
@@ -107,7 +106,7 @@ Place your Python scripts inside `python2.7libs/` or `scripts/python/` next to y
 In your Houdini home folder:
 - Go to `Edit > Configure External Editor` and set `Use System Setting`
 - Quit Houdini.
-- Remove `PARMmenu.xml`, `MainMenuCommon.xml`, and `scripts/extEditorParm.py`
+- Remove `PARMmenu.xml` and `MainMenuCommon.xml`
 
 ----------------------------------
 
