@@ -55,10 +55,6 @@ __Note__: Don't disable the other `Alt + E` or `Cmd + E` hotkeys, since that wil
 
 <sup>[1] Houdini 14 & 13 switches the context (grabbing the keyboard) when inside a text input therefore disabling the hotkeys of the parameter menu.</sup>
 
-__Houdini 14.0.201.13__: (Bug) Inside the `Edit Expression` window pressing `Cmd + E` doesn't open External Editor. `/Houdini/Panes/Textport/Open Editor` is missing the new `Cmd + E` shortcut, simply add `Cmd + E` on top of `Alt + E` in `Hotkeys...`. Reset all Hotkeys button removes the new `Cmd + E`.
-
-__Houdini 14 & 13__: (Bug) Hotkeys other than `Cmd + E` or `Alt + E` don't work.
-
 ### Troubleshooting 
 - Go to `Edit > Configure External Editor` to edit your configuration.
 
@@ -81,14 +77,6 @@ Houdini only supports ASCII paths.
 Make sure to quote your path if it contains spaces or arguments, refer to [wiki](https://github.com/ArthurYidi/Houdini-External-Editor/wiki/Manual-External-Editor-Configuration) for help.
 
 If you use TextEdit make sure to quit the application and not the window. If you accidently close the window, open TextEdit again and quit the application.
-
-To reload scripts located outside Houdini use the following (editing more than module, [see here](http://pyunit.sourceforge.net/notes/reloading.html)):
-
-    import outside_script
-    reload(outside_script)
-    outside_script.do_something()
-
-Place your Python scripts inside `python2.7libs/` or `scripts/python/` next to your `.hip` file.
 
 ----------------------------------
 ### Manual Setup
