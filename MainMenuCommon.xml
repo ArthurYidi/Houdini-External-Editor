@@ -5,7 +5,7 @@ License: BSD Simplified
 
 Add Edit > Configure External Editor
 
-version = 0.0.1
+version = 0.0.2
 -->
 <mainMenu>
     <menuBar>
@@ -19,12 +19,11 @@ version = 0.0.1
 Houdini External Editor
 Launcher & Configuration
 
-Script is executed by the Menu options:
+Script implements:
 - Expressions > Edit in External Editor
 - Edit > Configure External Editor
+- Toolbar > Edit in External Editor
 """
-
-__version__ = "0.0.1"
 
 import os
 import sys
@@ -48,6 +47,7 @@ def editParmExternal(editor, parm):
     parmIsNum = (parmType == hou.parmTemplateType.Int) or (parmType == hou.parmTemplateType.Float)
     parmIsExpression = len(keyframes)
     parmValue = ''
+    parmLanguage = hou.exprLanguage.Hscript
 
     if parmIsExpression:
         # find the appropriate keyframe
@@ -57,24 +57,29 @@ def editParmExternal(editor, parm):
         if not hou.almostEqual(curFrame, frames[min(i,len(frames)-1)]):
             i = max(0, i - 1)
         keyframe = keyframes[i]
+        parmLanguage = keyframe.expressionLanguage()
         parmValue = keyframe.expression()
+
+    elif parmType == hou.parmTemplateType.String:
+        if 'vex' in parmEditorLang:
+            parmLanguage = None
+        elif 'python' in parmEditorLang:
+            parmLanguage = hou.exprLanguage.Python
+        parmValue = parm.unexpandedString()
+
     else:
+        parmLanguage = parm.node().expressionLanguage()
         parmValue = parm.evalAsString()
 
-    # set the suffix
-    defaultLang = parm.node().expressionLanguage() 
-    if parmIsExpression:
-        defaultLang = keyframe.expressionLanguage()
     suff = '.cmd'
     pref = '%s_%s__' % (parm.node().name(), parm.name())
 
-    if parmType == hou.parmTemplateType.String:
-        if 'vex' in parmEditorLang:
-            suff = '.vfl'
-        elif 'python' in parmEditorLang:
-            suff = '.py'
-    elif defaultLang == hou.exprLanguage.Python:
+    if parmLanguage == hou.exprLanguage.Hscript:
+        suff = '.cmd'
+    elif parmLanguage == hou.exprLanguage.Python:
         suff = '.py'
+    else:
+        suff = '.vfl'
 
     with tempfile.NamedTemporaryFile(mode='w',
                                      prefix=pref,
@@ -300,7 +305,7 @@ def configExternalEditor():
 
         for i in range(len(editors)):
             editor = editors[i]
-            args[3] = editor['search'] 
+            args[3] = editor['search']
             try:
                 out = subprocess.check_output(args)
             except (OSError, subprocess.CalledProcessError):
@@ -317,7 +322,7 @@ def configExternalEditor():
         else:
             editors = editorsList['win']
 
-        # in python 3 use shutil.which 
+        # in python 3 use shutil.which
         from distutils.spawn import find_executable
 
         for i in range(len(editors)):
@@ -356,7 +361,7 @@ def configExternalEditor():
 
     if not selectedEditor:
         return None
-    
+
     selectedEditor = selectedEditor[0]
     if selectedEditor > len(installedEditors) - 1:
         if '- Use System Setting' in editorChoices[selectedEditor]:
@@ -380,7 +385,7 @@ def configExternalEditor():
                  '%s\n' % (example, (' ' * 90)),
             buttons=('Save', 'Cancel'),
             initial_contents=[str(editor)])
-      
+
         if option == 1:
             return None
 
@@ -425,7 +430,7 @@ def configExternalEditor():
                     if removeSetting:
                         lines[i] = ''
                     else:
-                        lines[i] = insert 
+                        lines[i] = insert
                         settingUpdated = True
                         break
 
@@ -434,7 +439,7 @@ def configExternalEditor():
 
         with open(houdiniEnv, 'w') as f:
             f.writelines(lines)
-   
+
         restartMessage = ''
         if removeSetting:
             restartMessage = '\nImportant:\nRestart Houdini for new settings to take effect.\n\n'
@@ -491,7 +496,8 @@ def main():
             parm = kwargs['parms'][0]
             editParmExternal(editor, parm)
 
-main()]]></scriptCode>
+main()
+]]></scriptCode>
             <scriptArgs>--config</scriptArgs>
         </addScriptItem>
     </menuBar>

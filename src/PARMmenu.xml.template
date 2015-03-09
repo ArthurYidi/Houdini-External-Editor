@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2015  Arthur Yidi
+License: BSD Simplified
+
+Add "Edit in External Editor" option to parameter menu.
+
+Problem:
+    The following disables PARM menu hotkeys when in using the SI_TextEditor
+
+    - /Houdini/Panes/Textport/Open Editor (h.pane.textport.editor)
+        /config/Applications/SI13.0.621/SI_Textport.ui
+        /config/Applications/SI13.0.621/SI_TextEditor.ui
+    - /Input Fields/Open Editor (inputfield.editor)
+
+version = {version}
+-->
+<menuDocument>
+    <menu>
+        <addScriptItem id="edit_expression_external">
+            <label>Edit in External Editor</label>
+            <parent>expression_menu</parent>
+            <insertAfter>edit_expression</insertAfter>
+            <scriptCode><![CDATA[{script}]]></scriptCode>
+            <scriptArgs>--launch</scriptArgs>
+        </addScriptItem>
+    </menu>
+</menuDocument>
+

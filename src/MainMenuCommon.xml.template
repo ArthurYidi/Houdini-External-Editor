@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2015  Arthur Yidi
+License: BSD Simplified
+
+Add Edit > Configure External Editor
+
+version = {version}
+-->
+<mainMenu>
+    <menuBar>
+        <addScriptItem id="h.config_external_editor">
+            <label>Configure External Editor</label>
+            <parent>edit_menu</parent>
+            <insertAfter>h.aliases</insertAfter>
+            <scriptCode><![CDATA[{script}]]></scriptCode>
+            <scriptArgs>--config</scriptArgs>
+        </addScriptItem>
+    </menuBar>
+</mainMenu>
