@@ -45,7 +45,7 @@ __Note__: Don't disable the other `Alt + E` or `Cmd + E` hotkeys, since that wil
 - Problem: Hotkey doesn't work when editing snippets (multiple line strings) such
   as Wrangle nodes. <sup>[1]</sup>
 - Solution: Click outside the text input and hover the parameter name then
-  use your hotkey. Or use the right click menu.
+  use your hotkey, or use the right click menu.
 
 ![hotkey-bug](https://raw.githubusercontent.com/wiki/ArthurYidi/Houdini-External-Editor/images/hotkey-bug.png)
 
