@@ -38,10 +38,6 @@ If your current editor configuration is not working go to `Edit > Configure Exte
     - `Search` for `Edit in External Editor`
     - Set your hotkey to `Alt + E`
 
-Or
-
-- `Shift + Control + Alt` and `Click` on `Edit in External Editor` and then set the hotkey.
-
 __Note__: Don't disable the other `Alt + E` or `Cmd + E` hotkeys, since that will disable the hotkey for opening with external editor inside `Edit Operator Type Properties`.
 
 
