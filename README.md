@@ -101,6 +101,11 @@ In your Houdini home folder:
 - Submit ideas or pull requests!
 
 ----------------------------------
+
+### Alternatives
+- [Multi Script Editor](https://github.com/paulwinex/pw_MultiScriptEditor)
+
+----------------------------------
 ### Houdini Home Folder
 
 The default location of your Houdini home folder:
