@@ -8,7 +8,7 @@
   automatically sets them up for you.
 - No longer a five step process to edit a parameter with an external editor.
 - When deleting a parameter value it doesn't leave it in an error state.
-- Works with Houdini 13 and 14
+- Works with Houdini 13, 14, 15, 16
 
 ### Quick Installation
 
@@ -26,7 +26,7 @@ If your current editor configuration is not working go to `Edit > Configure Exte
 
 ### Hotkeys
 
-**Houdini 14**
+**Houdini 14+**
 
 - In `Edit > Hotkeys...`:
     - `Search` for `Edit in External Editor`
@@ -49,7 +49,7 @@ __Note__: Don't disable the other `Alt + E` or `Cmd + E` hotkeys, since that wil
 
 ![hotkey-bug](https://raw.githubusercontent.com/wiki/ArthurYidi/Houdini-External-Editor/images/hotkey-bug.png)
 
-<sup>[1] Houdini 14 & 13 switches the context (grabbing the keyboard) when inside a text input therefore disabling the hotkeys of the parameter menu.</sup>
+<sup>[1] Houdini switches the context (grabbing the keyboard) when inside a text input therefore disabling the hotkeys of the parameter menu.</sup>
 
 ### Troubleshooting 
 - Go to `Edit > Configure External Editor` to edit your configuration.
@@ -103,6 +103,7 @@ In your Houdini home folder:
 ----------------------------------
 
 ### Alternatives
+- [Expression Editor](http://cgtoolbox.com/houdini-expression-editor/)
 - [Multi Script Editor](https://github.com/paulwinex/pw_MultiScriptEditor)
 
 ----------------------------------
